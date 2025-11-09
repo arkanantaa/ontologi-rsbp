@@ -267,19 +267,19 @@
         <NamedIndividual IRI="#Tommy"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasChild"/>
+        <NamedIndividual IRI="#Alan"/>
+        <NamedIndividual IRI="#John"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasSpouse"/>
         <NamedIndividual IRI="#Alan"/>
         <NamedIndividual IRI="#Susan"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasFather"/>
-        <NamedIndividual IRI="#Ann"/>
+        <ObjectProperty IRI="#hasSpouse"/>
         <NamedIndividual IRI="#Bob"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasChild"/>
-        <NamedIndividual IRI="#Dave"/>
-        <NamedIndividual IRI="#Bob"/>
+        <NamedIndividual IRI="#Jane"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasSpouse"/>
@@ -287,14 +287,29 @@
         <NamedIndividual IRI="#Hanna"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasSpouse"/>
-        <NamedIndividual IRI="#Jane"/>
+        <ObjectProperty IRI="#hasChild"/>
+        <NamedIndividual IRI="#Hanna"/>
         <NamedIndividual IRI="#Bob"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasFather"/>
-        <NamedIndividual IRI="#Janice"/>
+        <ObjectProperty IRI="#hasChild"/>
+        <NamedIndividual IRI="#Jane"/>
+        <NamedIndividual IRI="#Ann"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasChild"/>
+        <NamedIndividual IRI="#Jane"/>
+        <NamedIndividual IRI="#Mary"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasChild"/>
+        <NamedIndividual IRI="#Jane"/>
         <NamedIndividual IRI="#Scott"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasChild"/>
+        <NamedIndividual IRI="#Jane"/>
+        <NamedIndividual IRI="#Sue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasChild"/>
@@ -307,44 +322,24 @@
         <NamedIndividual IRI="#Tom"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasParent"/>
-        <NamedIndividual IRI="#John"/>
-        <NamedIndividual IRI="#Alan"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasSpouse"/>
         <NamedIndividual IRI="#John"/>
         <NamedIndividual IRI="#Mary"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasFather"/>
-        <NamedIndividual IRI="#Mary"/>
-        <NamedIndividual IRI="#Bob"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasParent"/>
-        <NamedIndividual IRI="#Sarah"/>
-        <NamedIndividual IRI="#Scott"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasFather"/>
-        <NamedIndividual IRI="#Scott"/>
-        <NamedIndividual IRI="#Bob"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasSpouse"/>
+        <ObjectProperty IRI="#hasChild"/>
         <NamedIndividual IRI="#Stephanie"/>
-        <NamedIndividual IRI="#Scott"/>
+        <NamedIndividual IRI="#Janice"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasFather"/>
-        <NamedIndividual IRI="#Sue"/>
-        <NamedIndividual IRI="#Bob"/>
+        <ObjectProperty IRI="#hasChild"/>
+        <NamedIndividual IRI="#Stephanie"/>
+        <NamedIndividual IRI="#Sarah"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasParent"/>
+        <ObjectProperty IRI="#hasChild"/>
+        <NamedIndividual IRI="#Stephanie"/>
         <NamedIndividual IRI="#Tommy"/>
-        <NamedIndividual IRI="#Scott"/>
     </ObjectPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasDOB"/>
@@ -991,6 +986,294 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>hasSon Determination Rule</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Person"/>
+                <Variable IRI="/p"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasChild"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/c"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Man"/>
+                <Variable IRI="/c"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasSon"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/c"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>hasFather Determination Rule</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Person"/>
+                <Variable IRI="/p"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasParent"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/c"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Man"/>
+                <Variable IRI="/c"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasFather"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/c"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>hasWife Determination Rule</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Man"/>
+                <Variable IRI="/p"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasSpouse"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/s"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Woman"/>
+                <Variable IRI="/s"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasWife"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/s"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>hasBrother Determination Rule</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Person"/>
+                <Variable IRI="/p"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasSibling"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/s"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Man"/>
+                <Variable IRI="/s"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasBrother"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/s"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>hasHusband Determination Rule</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Woman"/>
+                <Variable IRI="/p"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasSpouse"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/s"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Man"/>
+                <Variable IRI="/s"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasHusband"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/s"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>hasDaughter Determination Rule</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Person"/>
+                <Variable IRI="/p"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasChild"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/c"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Woman"/>
+                <Variable IRI="/c"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasDaughter"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/c"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>hasMother Determination Rule</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Person"/>
+                <Variable IRI="/p"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasParent"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/c"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Woman"/>
+                <Variable IRI="/c"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasMother"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/c"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>hasSister Determination Rule</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Person"/>
+                <Variable IRI="/p"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasSibling"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/s"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Woman"/>
+                <Variable IRI="/s"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasSister"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/s"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
             <Literal>Parent Classification</Literal>
         </Annotation>
         <Body>
@@ -1030,7 +1313,7 @@
                 <Variable IRI="/p"/>
             </ClassAtom>
             <DataPropertyAtom>
-                <DataProperty IRI="#hasAge"/>
+                <DataProperty IRI="#hasDOB"/>
                 <Variable IRI="/p"/>
                 <Variable IRI="/bYear"/>
             </DataPropertyAtom>
@@ -1337,7 +1620,7 @@
         </Body>
         <Head>
             <ObjectPropertyAtom>
-                <ObjectProperty IRI="#hasSister"/>
+                <ObjectProperty IRI="#hasOlderSister"/>
                 <Variable IRI="/p"/>
                 <Variable IRI="/s"/>
             </ObjectPropertyAtom>
