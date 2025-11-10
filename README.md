@@ -23,8 +23,8 @@ Properti dibagi menjadi Data Properties (untuk literal) dan Object Properties (u
 
 ### Data Properties
 * `hasAge`: (Domain: `Person`, Range: `xsd:int`) - Usia individu, akan diisi oleh SWRL.
-* `hasDOB`: (Domain: `Person`, Range: `xsd:int`) - **(Sesuai Kompromi)** Tahun lahir individu.
-* `hasDOD`: (Domain: `Person`, Range: `xsd:int`) - **(Sesuai Kompromi)** Tahun kematian individu.
+* `hasDOB`: (Domain: `Person`, Range: `xsd:int`) - Tahun lahir individu.
+* `hasDOD`: (Domain: `Person`, Range: `xsd:int`) - Tahun kematian individu.
 * `hasFirstName`: (Domain: `Person`, Range: `xsd:string`)
 * `hasLastName`: (Domain: `Person`, Range: `xsd:string`)
 * `hasMariageName`: (Domain: `Woman`, Range: `xsd:string`) - Akan diisi oleh SWRL.
@@ -64,7 +64,7 @@ Properti dibagi menjadi Data Properties (untuk literal) dan Object Properties (u
 
 ## 3. ABox: Input Individu dan Relasi Manual
 
-Berikut adalah data manual (Asserted Axioms) yang harus dimasukkan untuk setiap individu, disesuaikan dengan nama terakhir dari file XML Anda.
+Berikut adalah data manual (Asserted Axioms) yang harus dimasukkan untuk setiap individu.
 
 ### Keluarga 1: Generasi 1
 * **Dave**
@@ -87,7 +87,7 @@ Berikut adalah data manual (Asserted Axioms) yang harus dimasukkan untuk setiap 
     * `hasSex`: "male"
     * `hasDOB`: 1950 (integer)
     * (Asserted Object Property): `hasSpouse` -> `Susan`
-    * (Asserted Object Property): `hasChild` -> `John` *(Harus ditambahkan manual)*
+    * (Asserted Object Property): `hasChild` -> `John` 
 * **Susan**
     * `hasFirstName`: "Susan"
     * `hasLastName`: "King" (Nama gadis)
@@ -107,14 +107,13 @@ Berikut adalah data manual (Asserted Axioms) yang harus dimasukkan untuk setiap 
     * `hasLastName`: "Baker" (Nama gadis)
     * `hasSex`: "female"
     * `hasDOB`: 1977 (integer)
-    * (Asserted Object Property): `hasChild` -> `Mary`, `Sue`, `Scott`, `Ann` *(Harus ditambahkan manual)*
+    * (Asserted Object Property): `hasChild` -> `Mary`, `Sue`, `Scott`, `Ann` 
 * **John** (Anak Alan)
     * `hasFirstName`: "John"
     * `hasLastName`: "Woods"
     * `hasSex`: "male"
     * `hasDOB`: 1994 (integer)
     * (Asserted Object Property): `hasSpouse` -> `Mary`
-    * (Asserted Object Property): `hasChild` -> `Tom`, `Jim`
 
 ### Keluarga Utama: Generasi 3
 * **Mary** (Anak Bob)
@@ -122,6 +121,7 @@ Berikut adalah data manual (Asserted Axioms) yang harus dimasukkan untuk setiap 
     * `hasLastName`: "Smith"
     * `hasSex`: "female"
     * `hasDOB`: 1995 (integer)
+    * (Asserted Object Property): `hasChild` -> `Tom`, `Jim`
 * **Sue** (Anak Bob)
     * `hasFirstName`: "Sue"
     * `hasLastName`: "Smith"
@@ -143,7 +143,7 @@ Berikut adalah data manual (Asserted Axioms) yang harus dimasukkan untuk setiap 
     * `hasLastName`: "Parker" (Nama gadis)
     * `hasSex`: "female"
     * `hasDOB`: 2000 (integer)
-    * (Asserted Object Property): `hasChild` -> `Janice`, `Tommy`, `Sarah` *(Harus ditambahkan manual)*
+    * (Asserted Object Property): `hasChild` -> `Janice`, `Tommy`, `Sarah` 
 
 ### Keluarga Utama: Generasi 4
 * **Tom** (Anak John)
@@ -226,13 +226,18 @@ Person(?p) ^ hasParent(?p, ?c) ^ Man(?c) -> hasFather(?p, ?c)
 Person(?p) ^ hasParent(?p, ?c) ^ Woman(?c) -> hasMother(?p, ?c)
 
 // Rule 15: hasBrother Inference Rule
-Person(?p) ^ hasSibling(?p, ?s) ^ Man(?s) -> hasBrother(?p, ?s)
+Person(?p) ^ hasSibling(?p, ?s) ^ Man(?s)  ^ differentFrom(?p, ?s) -> hasBrother(?p, ?s)
 
 // Rule 16: hasSister Inference Rule
-Person(?p) ^ hasSibling(?p, ?s) ^ Woman(?s) -> hasSister(?p, ?s)
+Person(?p) ^ hasSibling(?p, ?s) ^ Woman(?s)  ^ differentFrom(?p, ?s) -> hasSister(?p, ?s)
 
 // Rule 17: hasWife Inference 
 Man(?p) ^ hasSpouse(?p, ?s) ^ Woman(?s) -> hasWife(?p, ?s)
 
 // Rule 18: hasHusband Inference
 Woman(?p) ^ hasSpouse(?p, ?s) ^ Man(?s) -> hasHusband(?p, ?s)
+
+// Rule 19: hasUncle Inference
+
+// Rule 20: 
+```
