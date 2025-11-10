@@ -1,5 +1,10 @@
 # Dokumentasi Ontologi Pohon Keluarga
 
+## Kelompok 7:
+1. Arkananta Masarief 5025231115
+2. Rafi Faheem Aziz 5025231116
+3. Kemal Tangguh Aji Rajasa 5025231263
+
 ## 1. TBox: Definisi Class
 
 Hierarki Class utama didefinisikan di bawah `owl:Thing`:
