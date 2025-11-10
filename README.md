@@ -46,7 +46,9 @@ Properti dibagi menjadi Data Properties (untuk literal) dan Object Properties (u
     * `hasBrother`: (`SubPropertyOf hasSibling`, Range: `Man`)
     * `hasSister`: (`SubPropertyOf hasSibling`, Range: `Woman`)
     * `hasOlderBrother`: (`SubPropertyOf hasBrother`)
+    * `hasYoungerBrother`: (`SubPropertyOf hasBrother`)
     * `hasOlderSister`: (`SubPropertyOf hasSister`)
+    * `hasYoungerSister`: (`SubPropertyOf hasSister`)
 * **Relasi Rantai (Otomatis via Property Chain):**
     * `hasGrandParent`: `hasParent o hasParent`
     * `hasGrandFather`: `hasParent o hasFather`
@@ -236,6 +238,24 @@ Man(?p) ^ hasSpouse(?p, ?s) ^ Woman(?s) -> hasWife(?p, ?s)
 
 // Rule 18: hasHusband Inference
 Woman(?p) ^ hasSpouse(?p, ?s) ^ Man(?s) -> hasHusband(?p, ?s)
+
+// Rule 19 : Younger Brother Rule
+hasBrother(?p, ?b) ^ hasDOB(?p, ?pDOB) ^ hasDOB(?b, ?bDOB) ^ swrlb:greaterThan(?bDOB, ?pDOB) -> hasYoungerBrother(?p, ?b)
+
+// Rule 20 : Younger Sister Rule
+hasSister(?p, ?s) ^ hasDOB(?p, ?pDOB) ^ hasDOB(?s, ?sDOB) ^ swrlb:greaterThan(?sDOB, ?pDOB) -> hasYoungerSister(?p, ?s)
+
+// Rule 21 : Uncle Rule
+hasParent(?p, ?parent) ^ hasBrother(?parent, ?uncle) -> hasUncle(?p, ?uncle)
+
+// Rule 22 : Aunt Rule
+hasParent(?p, ?parent) ^ hasSister(?parent, ?aunt) -> hasAunt(?p, ?aunt)
+
+// Rule 23 : Nephew Rule
+hasSibling(?p, ?sibling) ^ hasSon(?sibling, ?nephew) -> hasNephew(?p, ?nephew)
+
+// Rule 24 : Niece Rule
+hasSibling(?p, ?sibling) ^ hasDaughter(?sibling, ?niece) -> hasNiece(?p, ?niece)
 
 // Rule 19: hasUncle Inference
 
