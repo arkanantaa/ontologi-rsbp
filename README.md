@@ -236,3 +236,9 @@ Man(?p) ^ hasSpouse(?p, ?s) ^ Woman(?s) -> hasWife(?p, ?s)
 
 // Rule 18: hasHusband Inference
 Woman(?p) ^ hasSpouse(?p, ?s) ^ Man(?s) -> hasHusband(?p, ?s)
+
+// Rule 19 : Younger Brother Rule
+hasBrother(?p, ?b) ^ hasDOB(?p, ?pDOB) ^ hasDOB(?b, ?bDOB) ^ swrlb:greaterThan(?bDOB, ?pDOB) -> hasYoungerBrother(?p, ?b)
+
+// Rule 20 : Younger Sister Rule
+hasSister(?p, ?s) ^ hasDOB(?p, ?pDOB) ^ hasDOB(?s, ?sDOB) ^ swrlb:greaterThan(?sDOB, ?pDOB) -> hasYoungerSister(?p, ?s)
