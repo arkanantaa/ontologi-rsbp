@@ -46,7 +46,9 @@ Properti dibagi menjadi Data Properties (untuk literal) dan Object Properties (u
     * `hasBrother`: (`SubPropertyOf hasSibling`, Range: `Man`)
     * `hasSister`: (`SubPropertyOf hasSibling`, Range: `Woman`)
     * `hasOlderBrother`: (`SubPropertyOf hasBrother`)
+    * `hasYoungerBrother`: (`SubPropertyOf hasBrother`)
     * `hasOlderSister`: (`SubPropertyOf hasSister`)
+    * `hasYoungerSister`: (`SubPropertyOf hasSister`)
 * **Relasi Rantai (Otomatis via Property Chain):**
     * `hasGrandParent`: `hasParent o hasParent`
     * `hasGrandFather`: `hasParent o hasFather`
