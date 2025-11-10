@@ -244,3 +244,9 @@ hasBrother(?p, ?b) ^ hasDOB(?p, ?pDOB) ^ hasDOB(?b, ?bDOB) ^ swrlb:greaterThan(?
 
 // Rule 20 : Younger Sister Rule
 hasSister(?p, ?s) ^ hasDOB(?p, ?pDOB) ^ hasDOB(?s, ?sDOB) ^ swrlb:greaterThan(?sDOB, ?pDOB) -> hasYoungerSister(?p, ?s)
+
+// Rule 21 : Uncle Rule
+hasParent(?p, ?parent) ^ hasBrother(?parent, ?uncle) -> hasUncle(?p, ?uncle)
+
+// Rule 22 : Aunt Rule
+hasParent(?p, ?parent) ^ hasSister(?parent, ?aunt) -> hasAunt(?p, ?aunt)
