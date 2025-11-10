@@ -66,7 +66,7 @@ Properti dibagi menjadi Data Properties (untuk literal) dan Object Properties (u
 
 ## 3. ABox: Input Individu dan Relasi Manual
 
-Berikut adalah data manual (Asserted Axioms) yang harus dimasukkan untuk setiap individu, disesuaikan dengan nama terakhir dari file XML Anda.
+Berikut adalah data manual (Asserted Axioms) yang harus dimasukkan untuk setiap individu.
 
 ### Keluarga 1: Generasi 1
 * **Dave**
