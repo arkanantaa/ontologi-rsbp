@@ -1,7 +1,5 @@
 # Dokumentasi Ontologi Pohon Keluarga
 
-Dokumen ini merangkum semua komponen (TBox, ABox, dan Rules) yang didefinisikan dalam file `ontologi-keluarga.owx`.
-
 ## 1. TBox: Definisi Class
 
 Hierarki Class utama didefinisikan di bawah `owl:Thing`:
