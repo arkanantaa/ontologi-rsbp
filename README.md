@@ -231,8 +231,8 @@ Person(?p) ^ hasSibling(?p, ?s) ^ Man(?s) -> hasBrother(?p, ?s)
 // Rule 16: hasSister Inference Rule
 Person(?p) ^ hasSibling(?p, ?s) ^ Woman(?s) -> hasSister(?p, ?s)
 
-// Rule 17: hasWife Inference (Tidak Direkomendasikan/Redundan)
+// Rule 17: hasWife Inference 
 Man(?p) ^ hasSpouse(?p, ?s) ^ Woman(?s) -> hasWife(?p, ?s)
 
-// Rule 18: hasHusband Inference (Tidak Direkomendasikan/Redundan)
+// Rule 18: hasHusband Inference
 Woman(?p) ^ hasSpouse(?p, ?s) ^ Man(?s) -> hasHusband(?p, ?s)
