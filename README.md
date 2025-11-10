@@ -250,3 +250,9 @@ hasParent(?p, ?parent) ^ hasBrother(?parent, ?uncle) -> hasUncle(?p, ?uncle)
 
 // Rule 22 : Aunt Rule
 hasParent(?p, ?parent) ^ hasSister(?parent, ?aunt) -> hasAunt(?p, ?aunt)
+
+// Rule 23 : Nephew Rule
+hasSibling(?p, ?sibling) ^ hasSon(?sibling, ?nephew) -> hasNephew(?p, ?nephew)
+
+// Rule 24 : Niece Rule
+hasSibling(?p, ?sibling) ^ hasDaughter(?sibling, ?niece) -> hasNiece(?p, ?niece)
