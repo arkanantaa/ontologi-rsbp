@@ -1,6 +1,9 @@
 # Dokumentasi Ontologi Pohon Keluarga
 
-Dokumen ini merangkum semua komponen (TBox, ABox, dan Rules) yang didefinisikan dalam file `ontologi-keluarga.owx`.
+## Kelompok 7:
+1. Arkananta Masarief 5025231115
+2. Rafi Faheem Aziz 5025231116
+3. Kemal Tangguh Aji Rajasa 5025231263
 
 ## 1. TBox: Definisi Class
 
@@ -228,8 +231,8 @@ Person(?p) ^ hasSibling(?p, ?s) ^ Man(?s) -> hasBrother(?p, ?s)
 // Rule 16: hasSister Inference Rule
 Person(?p) ^ hasSibling(?p, ?s) ^ Woman(?s) -> hasSister(?p, ?s)
 
-// Rule 17: hasWife Inference (Tidak Direkomendasikan/Redundan)
+// Rule 17: hasWife Inference 
 Man(?p) ^ hasSpouse(?p, ?s) ^ Woman(?s) -> hasWife(?p, ?s)
 
-// Rule 18: hasHusband Inference (Tidak Direkomendasikan/Redundan)
+// Rule 18: hasHusband Inference
 Woman(?p) ^ hasSpouse(?p, ?s) ^ Man(?s) -> hasHusband(?p, ?s)
