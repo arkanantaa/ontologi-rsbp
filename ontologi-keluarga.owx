@@ -312,19 +312,24 @@
         <NamedIndividual IRI="#Sue"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasChild"/>
+        <ObjectProperty IRI="#hasSpouse"/>
         <NamedIndividual IRI="#John"/>
+        <NamedIndividual IRI="#Mary"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasChild"/>
+        <NamedIndividual IRI="#Mary"/>
         <NamedIndividual IRI="#Jim"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasChild"/>
-        <NamedIndividual IRI="#John"/>
+        <NamedIndividual IRI="#Mary"/>
         <NamedIndividual IRI="#Tom"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasSpouse"/>
-        <NamedIndividual IRI="#John"/>
-        <NamedIndividual IRI="#Mary"/>
+        <NamedIndividual IRI="#Scott"/>
+        <NamedIndividual IRI="#Stephanie"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasChild"/>
@@ -537,7 +542,7 @@
         <Literal>Mary</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#hasFirstName"/>
+        <DataProperty IRI="#hasLastName"/>
         <NamedIndividual IRI="#Mary"/>
         <Literal>Smith</Literal>
     </DataPropertyAssertion>
@@ -1110,6 +1115,10 @@
                 <Class IRI="#Man"/>
                 <Variable IRI="/s"/>
             </ClassAtom>
+            <DifferentIndividualsAtom>
+                <Variable IRI="/p"/>
+                <Variable IRI="/s"/>
+            </DifferentIndividualsAtom>
         </Body>
         <Head>
             <ObjectPropertyAtom>
