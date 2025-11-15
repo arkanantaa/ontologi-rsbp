@@ -50,6 +50,12 @@
         <ObjectProperty IRI="#hasFatherInLaw"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasGrandChild"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGrandDaughter"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasGrandFather"/>
     </Declaration>
     <Declaration>
@@ -57,6 +63,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasGrandParent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGrandSon"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasHusband"/>
@@ -724,6 +733,10 @@
         <ObjectProperty IRI="#hasParentInLaw"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasGrandDaughter"/>
+        <ObjectProperty IRI="#hasGrandChild"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasGrandFather"/>
         <ObjectProperty IRI="#hasGrandParent"/>
     </SubObjectPropertyOf>
@@ -734,6 +747,10 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasGrandParent"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasGrandSon"/>
+        <ObjectProperty IRI="#hasGrandChild"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasHusband"/>
@@ -791,12 +808,16 @@
         <ObjectProperty IRI="#hasChild"/>
         <ObjectProperty IRI="#hasParent"/>
     </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasGrandChild"/>
+        <ObjectProperty IRI="#hasGrandParent"/>
+    </InverseObjectProperties>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#hasSibling"/>
+    </SymmetricObjectProperty>
     <SymmetricObjectProperty>
         <ObjectProperty IRI="#hasSpouse"/>
     </SymmetricObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#hasSibling"/>
-    </TransitiveObjectProperty>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasChild"/>
         <Class IRI="#Person"/>
@@ -827,6 +848,14 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasFather"/>
+        <Class IRI="#Man"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGrandDaughter"/>
+        <Class IRI="#Woman"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGrandSon"/>
         <Class IRI="#Man"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
@@ -1277,10 +1306,6 @@
                 <Class IRI="#Woman"/>
                 <Variable IRI="/s"/>
             </ClassAtom>
-            <DifferentIndividualsAtom>
-                <Variable IRI="/p"/>
-                <Variable IRI="/s"/>
-            </DifferentIndividualsAtom>
         </Body>
         <Head>
             <ObjectPropertyAtom>
@@ -1288,37 +1313,6 @@
                 <Variable IRI="/p"/>
                 <Variable IRI="/s"/>
             </ObjectPropertyAtom>
-        </Head>
-    </DLSafeRule>
-    <DLSafeRule>
-        <Annotation>
-            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
-            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
-        </Annotation>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal></Literal>
-        </Annotation>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>Parent Classification</Literal>
-        </Annotation>
-        <Body>
-            <ClassAtom>
-                <Class IRI="#Person"/>
-                <Variable IRI="/p"/>
-            </ClassAtom>
-            <ObjectPropertyAtom>
-                <ObjectProperty IRI="#hasChild"/>
-                <Variable IRI="/p"/>
-                <Variable IRI="/c"/>
-            </ObjectPropertyAtom>
-        </Body>
-        <Head>
-            <ClassAtom>
-                <Class IRI="#Parent"/>
-                <Variable IRI="/p"/>
-            </ClassAtom>
         </Head>
     </DLSafeRule>
     <DLSafeRule>
@@ -1593,25 +1587,25 @@
         </Annotation>
         <Body>
             <ObjectPropertyAtom>
-                <ObjectProperty IRI="#hasParent"/>
+                <ObjectProperty IRI="#hasChild"/>
                 <Variable IRI="/p"/>
-                <Variable IRI="/parent"/>
+                <Variable IRI="/a"/>
             </ObjectPropertyAtom>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="#hasChild"/>
-                <Variable IRI="/parent"/>
-                <Variable IRI="/s"/>
+                <Variable IRI="/p"/>
+                <Variable IRI="/b"/>
             </ObjectPropertyAtom>
             <DifferentIndividualsAtom>
-                <Variable IRI="/p"/>
-                <Variable IRI="/s"/>
+                <Variable IRI="/a"/>
+                <Variable IRI="/b"/>
             </DifferentIndividualsAtom>
         </Body>
         <Head>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="#hasSibling"/>
-                <Variable IRI="/p"/>
-                <Variable IRI="/s"/>
+                <Variable IRI="/a"/>
+                <Variable IRI="/b"/>
             </ObjectPropertyAtom>
         </Head>
     </DLSafeRule>
